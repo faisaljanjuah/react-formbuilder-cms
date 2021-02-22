@@ -1,0 +1,14 @@
+{
+    "sessionExpired": {
+        "en": "Session Expired! Please login again",
+        "ur": "براہ کرم دوبارہ لاگ ان کریں"
+    },
+    "welcome_text": {
+        "en": "Welcome to <strong>SLM Management Portal!</strong>",
+        "ur": "<span class='en'>SLM</span> میں خوش اۤمدید"
+    },
+    "comingsoon": {
+        "en": "This page is coming soon.",
+        "ur": "<span class='en'>SLM</span> میں خوش اۤمدید"
+    }
+}

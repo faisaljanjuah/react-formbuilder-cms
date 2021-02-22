@@ -1,0 +1,617 @@
+/*!
+ **********************************************************************
+ 
+ **********************************************************************
+ */
+
+$borderColor: #DDD;
+
+// If bootstrap 4 is not included
+.d-flex {
+    display: flex;
+}
+.flex-column {
+    flex-direction: column;
+}
+.align-items-center {
+    align-items: center;
+}
+.justify-content-center {
+    justify-content: center;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+@for $i from 1 through 5 {
+    .mt-#{$i}0 {
+        margin-top: $i * 10px;
+    }
+    .mb-#{$i}0 {
+        margin-bottom: $i * 10px;
+    }
+}
+input, select, textarea {
+    &:disabled {
+        background-color: #F8F8F8 !important;
+    }
+}
+
+// Custom Grid for Drag n Drop
+$gutter: 30px; // margin-left + margin-right (15+15)
+.c-0, .c-1, .c-2, .c-3, .c-4, .c-5, .c-6, .c-7, .c-8, .c-9, .c-10, .c-11, .c-12 {
+    float: left;
+    padding: 6px;
+    position: relative;
+    margin: 10px #{$gutter/2};
+}
+.c-0 {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.c-1 { width: calc(8.333333% - #{$gutter}); }
+.c-2 { width: calc(16.666667% - #{$gutter}); }
+.c-3 { width: calc(25% - #{$gutter}); }
+.c-4 { width: calc(33.333333% - #{$gutter}); }
+.c-5 { width: calc(41.666667% - #{$gutter}); }
+.c-6 { width: calc(50% - #{$gutter}); }
+.c-7 { width: calc(58.333333% - #{$gutter}); }
+.c-8 { width: calc(66.666667% - #{$gutter}); }
+.c-9 { width: calc(75% - #{$gutter}); }
+.c-10 { width: calc(83.333333% - #{$gutter}); }
+.c-11 { width: calc(91.666667% - #{$gutter}); }
+.c-12 { width: calc(100% - #{$gutter}); }
+
+
+.btn {
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 2px;
+    line-height: normal;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: color .15s ease-in-out,
+        background-color .15s ease-in-out,
+        border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out;
+    & + .btn {
+        margin-left: 16px;
+    }
+    &.btn-primary {
+        border-color: #0082C6;
+        background-color: #0082C6;
+        box-shadow: none !important;
+    }
+    &.btn-gray {
+        border-color: #e0e0e0;
+        background-color: #f1f1f1;
+        box-shadow: none !important;
+    }
+}
+
+// react-form-builder CSS with prefix 'rfb_'
+#formNameWidth {
+    opacity: 0;
+    bottom: 100%;
+    z-index: -999;
+    font-size: 20px;
+    overflow: hidden;
+    position: absolute;
+    visibility: hidden;
+}
+.rfb_message {
+    font-size: 12px;
+    &.rfb_error {
+        color: #f13030;
+    }
+    &.rfb_info {
+        color: #e4a700;
+    }
+}
+.internalField + .error, .fieldContainer .error {
+    font-size: 12px;
+    color: #f13030;
+}
+.rfb-TopBtns {
+    margin-bottom: 10px;
+}
+.rfb_FormList {
+    padding: 0;
+    margin: 30px 0;
+    max-width: 100%;
+    list-style: none;
+    display: inline-block;
+    border: 1px solid $borderColor;
+    & > li {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid $borderColor;
+        &:last-child {
+            border-bottom: none;
+        }
+        & .rfb_checkbox {
+            padding: 0 6px;
+        }
+    }
+}
+.rfb_InputOption {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    & > input {
+        top: -100%;
+        position: absolute;
+        visibility: hidden;
+        & + label {
+            margin: auto;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            padding-left: 26px;
+            &:empty {
+                margin: auto;
+                height: 20px;
+                padding-left: 20px;
+            }
+            &:before, &:after {
+                top: 0;
+                left: 0;
+                bottom: 0;
+                content: '';
+                margin: auto;
+                position: absolute;
+                transition: all ease-in-out 50ms;
+            }
+            &:before {
+                width: 20px;
+                height: 20px;
+                border-radius: 2px;
+                border: 1px solid $borderColor;
+            }
+            &:after {
+                left: 3px;
+                top: -2px;
+                opacity: 0;
+                width: 14px;
+                height: 6px;
+                transform: rotate(-45deg);
+                border-left: 2px solid #000;
+                border-bottom: 2px solid #000;
+            }
+        }
+        &:checked + label {
+            &:before {
+                border: 1px solid #000;
+            }
+            &:after {
+                opacity: 1;
+            }
+        }
+
+    }
+    &.rfb_radio {
+        & > input {
+            & + label:after {
+                top: 0;
+                width: 1px;
+                height: 1px;
+                left: 10px;
+                border: none;
+                border-radius: 2px;
+                background: #000;
+                transform: rotate(0deg);
+                transition: all ease-in-out 100ms;
+            }
+            &:checked + label:after {
+                left: 4px;
+                width: 12px;
+                height: 12px;
+            }
+        }
+    }
+}
+.rfb_FormItem {
+    flex-grow: 1;
+    cursor: pointer;
+    padding: 4px 10px;
+    overflow: hidden;
+    user-select: none;
+    white-space: nowrap;
+    background: transparent;
+    text-overflow: ellipsis;
+    transition: all ease-in-out 0.15s;
+    border-left: 1px solid $borderColor;
+    &:hover {
+        background: #F0F0F0;
+    }
+    &.none {
+        cursor: default;
+        font-weight: bold;
+        &:hover {
+            background: transparent;
+        }
+    }
+}
+#importFormCollection {
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    position: absolute;
+    visibility: hidden;
+    & + label {
+        margin: 0;
+    }
+}
+.rfb_ImportExportBtns {
+    & > * + .btn {
+        margin-left: 16px;
+    }
+}
+// AddUpdateForm
+.rfb_InputHeading {
+    padding: 0;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    max-width: 100%;
+    min-width: 420px;
+    min-height: 32px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0);
+    border-bottom: 1px solid #CCC;
+    transition: all ease-in-out 0.2s;
+    &:disabled {
+        padding-left: 8px;
+        background: rgba(0, 0, 0, 0.02);
+        border-bottom: 1px solid transparent;
+    }
+}
+.rfb_BtnEditFormName {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    background: no-repeat center;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC/0lEQVRYR+2Xy08TURSHf+feFjbQAC1u3egfoFuigUJ5iCYuLAluEFujC03UhUZ5hIePjYlLFMpjwcqi6ApDCzbGGGM00cQVJmp88CpTiijGTuYe08bKI1AKHUJimP3M953fOffMDGGbL9pmPnYE/r8E9lSdy57VFxoBGrdajYHJod5wqjkzNYEEPPbDDyGOxKEK9IugGiOBntsAeDURUwXsLm8HwGcAXLYwD+iEawSqBeiGFvA1bJlAvPKovnATUvWzEg+UMrKkVZTMPO4Zc7g8txi4yCSKIsNdz1dKZJzAstgNvCOrqlsmkTv/0R61jQF4qQW6a0wVWISjEiTOg3EJoO8kjBNLJWCINja4RBvt3mWawDI4S7cW9D1ylNcfVkrcZ8UfWNBxSRiEQj4EbETUOjPsazFHwO3OskdyBiBQiSS8on4/GxQ0CBOSKRdEUYO5Li5BRH2rweMyG5+BRXgVWB5LVP4XzkyfdeilQmbZLAa/IcmfKKYqwqG+ybV2wcYE3O6s/KjNL6AOrYSTwJffMUvpfKhTc7g8LQw0M6g5EvC1m7OIUsBB4mtMF86NwtNvwVI4Cbc23P2wsMyzT4FHoOibNVs5J4d6Zxyuk60Makqn8mQq67cgDp+z3ROsqrESTjxuoWzn1PCd8Gbg6yewFA6q0QI9g/8qJ5qwkLUkDreXedpAaNxI5Wkl4Cjz9jOMWkCe1YK+jgScVRBCTEpFzukR33Qm8JQJxBeNFvs5RwKSwFCK7gpwLQSmpJIlZsBTChRWeA8oxU8VjGoieZQYpxh4L3XjYDjUN2Uv97SD0bCZ2JceyzWHsMDlbWLgymzeXB78/pjd5b0O8FUwuyCo2Ax4ygTySz2jIIHZYJczYex2S3s05y2Yc0Byd6aVpxzCeP8j+sJ3Jo5JQaeVwXuZuJiYi4ik1Sz4mgkk+5+0VEotCBLPIBBiRU8iQd8Ls/4nVp2BgnLPBVKoTAANDkWilld43ambBU1rCLcCtmXfhJnIrv8uyOTpady7I/AHRay0MAXxNZwAAAAASUVORK5CYII=");
+}
+.rfb_FormBody {
+    margin: 20px 0;
+    .rfb_BodyHeader {
+        .btn-icon {
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 0;
+            background: no-repeat center;
+            &.rfb_BtnLayoutMobile {
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABGklEQVRYR+2XMWqFQBRFz7exUZBkB4JrEFIHbIOYFaRPZWMhWAqCIOksUgrBJdgJWYI7cAOiSEiKHxQE/QSUMOETmCnfPO4cDlO8d+LK53Tl9/k3ABPoI3Bz0NgHUACfe/1HDdwB70uYpmnour7JHseRruvWtSfgVRTAPVAtYaZpYlnWJrttW5qmWdeegRdhAI7jVFmW7eXN92makue5WADP86qyLA8BBEFAHMcSQBqQBqQBaUAakAakAbEGXNetimKaM/dPGIYkSSIWYD0TLgi2baOqKnVd/0T1twCKojAMwwxgGAZ9319CCAXYjOXLS1EUzeO57/ucz+dLAKFj+bQ/PAC3+z9g7pgWkzfga6//6GKyl/PrewnwDQyLwyEAHfWBAAAAAElFTkSuQmCC');
+            }
+            &.rfb_BtnLayoutDesktop {
+                background-position: center 2px;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABNklEQVRYR+2WMUvDUBSFv6QKppkSZ7esSRcho4ObkF/QqSiI+A8yuWTRzUnBIejfCJLVuZmcxS2ETMILMZIhGDvItQ7t8N58zrkfhwf3Gmz4GRuejwbYqgZ6mEvgUPovLMsylVJd27ad1AO8AjdA03vGDcxN03yazWatYciK8TzPKMuyq6pKPL8oCkMpFQPXqwBXruvGZVnuitPWEPq+3xRF8QicbQQgCIJmuVxqAN2AbkA3oBvYzgZup9PpiW3bH2vsGLFFKWXVdf0CzMfLaB94A/bESf8TfgIHwPuw+O+Ac2lmGIZEUfRDnuc5WZb9FrF6tNwDFwNADhxJAZIkIY77m+L7pWnKYrGQRvS6Z+B4AOidp1L3ZDLBcZydsb6u67Zpmr+cZg9AKru9pGRr6DSAbkA38AU9kLch8G94GgAAAABJRU5ErkJggg==');
+            }
+        }
+    }
+    & .rfb_FormURL {
+        & .rfb_FormBaseURL {
+            color: #999;
+            padding: 4px 0;
+            padding-left: 8px;
+            background: rgba(0, 0, 0, 0.02);
+            border-top: 1px solid $borderColor;
+            border-left: 1px solid $borderColor;
+        }
+        & input {
+            padding: 4px 0;
+            padding-right: 8px;
+            outline: none !important;
+            border: 1px solid $borderColor;
+            border-left: none;
+            border-bottom: none;
+            & + .error {
+                margin-left: 6px;
+                display: inline-block;
+            }
+        }
+    }
+    & .rfb_BodyContent {
+        padding: 20px;
+        border: 1px solid $borderColor;
+        & .rfb_FormLayout {
+            margin-top: 20px;
+        }
+    }
+}
+.rfb_PopupOverlay {
+    top: 0;
+	left: 0;
+    right: 0;
+    z-index: 999;
+	width: 100vw;
+    height: 100vh;
+    position: fixed;
+	background: rgba(0,0,0,0.2);
+	& .rfb_PopupContainer {
+		margin: auto;
+		padding: 40px;
+		overflow: auto;
+		min-width: 560px;
+		max-height: 100vh;
+        position: relative;
+		background: #FFF;
+        border-radius: 6px;
+        box-shadow: 0 0 16px rgba(0,0,0,0.2);
+        & .rfb_ClosePopup {
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 2px 5px;
+            line-height: 24px;
+            position: absolute;
+        }
+        & > h2 {
+            font-size: 22px;
+            text-transform: capitalize;
+        }
+    }
+}
+.rfb_AddNewFieldPopup {
+    & .rfb_FieldTypeOptions {
+        margin: 30px auto;
+        & .radioOptionsWrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        & .fieldContainer.radio-field {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            & .rfb_InputOption {
+                margin: 4px 0;
+            }
+        }
+    }
+}
+.rfb_PopupOverlay .rfb_AddNewFieldInfoPopup {
+    min-width: 600px;
+}
+.rfb_AddNewFieldInfoPopup {
+    & .rfb_FieldDetails {
+        margin: 30px auto;
+        & label {
+            margin-bottom: 4px;
+        }
+        & .showAdvanceOptions {
+            display: flex;
+            justify-content: flex-end;
+            & label {
+                color: #007bff;
+                margin-bottom: 0;
+            }
+            & .fieldContainer { margin: 0; }
+        }
+        & .optionRow {
+            display: flex;
+            margin-bottom: 12px;
+            flex-direction: column;
+            align-items: flex-start;
+            & .fieldContainer {
+                margin-bottom: 6px;
+            }
+            & .input-field {
+                width: 100%;
+            }
+            & .concatFields {
+                display: flex;
+                width: 100%;
+                & > :first-child {
+                    width: 136px;
+                    & input, & select {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+.rfb_FieldDetails .fieldContainer {
+    display: flex;
+    margin-bottom: 16px;
+    flex-direction: column;
+    & .internalField {
+        min-height: 38px;
+        padding: 6px 10px;
+        border-radius: 2px;
+        border: 1px solid #ccc;
+        & + .fieldDescription {
+            font-size: 12px;
+            color: #909090;
+        }
+    }
+    & textarea {
+        min-height: 160px !important;
+    }
+    & .rfb_InputOption {
+        margin-right: auto;
+    }
+}
+.rfb_FormLayout {
+    & .fieldContainer {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        & > label {
+            top: 6px;
+            margin: auto;
+            position: absolute;
+        }
+        & input:not([type="radio"]):not([type="checkbox"]), & select, & textarea {
+            width: 100%;
+            min-height: 30px;
+        }
+        & textarea {
+            min-height: 140px;
+        }
+        &.checkbox-field,&.radio-field,&.button-field {
+            // position: relative;
+            flex-direction: row;
+            &:after {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                content: '';
+                position: absolute;
+            }
+            & .rfb_InputOption {
+                margin-bottom: 10px;
+                & + .rfb_InputOption {
+                    margin-left: 24px;
+                }
+            }
+        }
+    }
+    & .optionPanel {
+        top: 6px;
+        right: 6px;
+        z-index: 1;
+        font-size: 0;
+        position: absolute;
+        & .optionIcon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+            display: inline-block;
+            background: no-repeat center center;
+            &:first-child {
+                margin-left: 0;
+            }
+            &.width {
+                width: 26px;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAxklEQVRIS+2UTQrCQAxGX8GDeA43iqcSRWzFe4mexIW3EEE+SXBaf2YUYjfNZoaZJC/5Ok1FsFXB+RkAWYV7k2gEXLLlPRyugGKe7FUHY+BsgD1wzIDmwMQAij2l/l1AbZc7A6wB7T+Z7hcG8HhfW89UhxugsaSS6BeA57hDvANPrrODyaLkpYAlsAVmwNTaVaG1AGnyrhSlgNUbDZu/AAQPlci7C/3IKUT7kGfqkNAfzSGho+KLEZR37W2a5ksr9Bg6yAp1AyD/OxkPZTXHAAAAAElFTkSuQmCC');
+            }
+            &.edit {
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABOklEQVQ4T6XUS06EQBAG4L/AYzhIhEQ3TlzqLVxMx8f4uIR7L+ApVNQJJp7AxIULt6KJowGicAoXQxmIEqbtge6RLemPv6qLIhg/wnaW3zez9OlBdZTMPGE73lsA8IDBwzx5GcnnDcAa2wbwBWBBhWqCDYwQMPiE2LoDeFFGNUBhL3mvFwzaASHI4tUjIJy47rpb2MW9jHaAaqzs2xygOVZ+aEbCEhufM7DbLLMt2e9tK0BdjPbzJLruGJv/YVLJwu754zNi7LWXqU4mlayJMR3kaXTV9ndVPex5a1sE3AI0ypKVYTlnfy5AA6tLdvz+AMwhiEQWRzfzYjPB5tAS4/Azfb7UXSJVyXXC6VMTU6xO6Pr9jQLFcdNjRqhaT11JNZZDFzH9vgJVCc0YwIJ1+hFHj209NDN/JuQb1p8FJGb/px8AAAAASUVORK5CYII=');
+            }
+            &.delete {
+                position: relative;
+                & i {
+                    width: 20px;
+                    overflow: hidden;
+                    position: absolute;
+                    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABGUlEQVQ4T+2Tz07CQBDGv2l5C2FDwoYEpPXKmVcAeQ8TrijolcT34M8reOZqi5iQJTELvoXtmC0hoYJtBW64x92Z334z8w3hzIeSeEJeVwG7Go8J5lq9zX/LSwG6PTA/xJKJ+lp5vURgUbr1EGFnL4jJqKv8uH8H8Z5CC9bgQ3nTSKGQbgvMo5PaSXSrlTdOLPmYD2LATenIm5+ywExlFrA2pW7jY0Aha2MwNfXSz6RclBwG8USrWSsTUMhaG0D7i3FnEnKEZwBDrWbDqPd/B25swyDHAAjsY8c2/8BoLolTFvICe3hmH6atX6oPCyXnkYCuWac0WPTO1GTgabX07w+uXr58c2UH4QsD5SxAAhaBbTXWi9fPbfw3inoLJHsIM/8AAAAASUVORK5CYII=') no-repeat;
+                    &.trashLid {
+                        top: 0;
+                        height: 5px;
+                        transform-origin: 16px 8px;
+                        background-position: center top;
+                        transition: all ease-in-out 0.1s;
+                        &.open {
+                            transform: rotate(90deg);
+                        }
+                    }
+                    &.trashBin {
+                        bottom: 0;
+                        height: 15px;
+                        background-position: center bottom;
+                    }
+                }
+            }
+        }
+    }
+}
+.rfb_CurrentLayout {
+    margin: auto;
+    padding: 30px;
+    position: relative;
+    border: 1px solid #999;
+    transition: all linear 0.2s;
+    &.desktop {
+        max-width: 100%;
+    }
+    &.mobile {
+        max-width: 560px;
+    }
+    & .layoutLabel {
+        right: 0;
+        bottom: 100%;
+        position: absolute;
+    }
+    & .radioOptionsWrapper {
+        display: flex;
+    }
+    & > .row {
+        & .draggable {
+            cursor: grab;
+            padding-top: 32px;
+            position: relative;
+            border: 1px dashed rgba(0, 0, 0, 0.2);
+            &:active {
+                cursor: grabbing;
+            }
+            &.dragging {
+                position: relative;
+                border-style: dashed;
+                border-color: rgba(0, 0, 0, 0.15);
+                &:after {
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 2;
+                    content: '';
+                    position: absolute;
+                    background: rgba(0, 0, 255, 0.1);
+                }
+            }
+            &.dragOver {
+                border-color: rgba(0, 0, 0, 0.5);
+                &:before {
+                    top: -6px;
+                    left: -15px;
+                    bottom: -6px;
+                    content: '';
+                    position: absolute;
+                    border-left: 2px solid #383838;
+                }
+                &:after {
+                    background: rgba(255, 0, 0, 0.25);
+                }
+            }
+        }
+    }
+}
+.rfb_changeFieldWidthWrapper {
+    margin-top: 20px;
+    & .fieldContainer {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        & label {
+            margin: 0;
+        }
+        & select {
+            padding: 6px 10px;
+            border-radius: 2px;
+            border: 1px solid #ccc;
+            & + .fieldDescription {
+                font-size: 12px;
+                color: #909090;
+            }
+        }
+    }
+}
+
+
+// .rfb_FormFooter {
+// }

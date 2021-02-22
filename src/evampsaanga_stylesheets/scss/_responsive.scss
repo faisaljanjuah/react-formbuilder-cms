@@ -1,0 +1,68 @@
+/*!
+ **********************************************************************
+ 
+ **********************************************************************
+ */
+
+@import 'variables';
+@import 'mixins';
+
+
+@include mediaScreen($minWidth,$xs){ /* min 576px */
+
+}
+@include mediaScreen($minWidth,$sm){ /* min 768px */
+
+}
+@include mediaScreen($minWidth,$md){ /* min 992 */
+
+}
+@include mediaScreen($minWidth, 1100px){ /* min 1100 */
+
+}
+@include mediaScreen($minWidth, $lg){ /* min 1200 */
+
+}
+@include mediaScreen($minWidth, 1366px){ /* min 1366 */
+
+}
+@include mediaScreen($minWidth, 1400px){ /* min 1400 */
+
+}
+@include mediaScreen($minWidth, 1600px){ /* min 1600 */
+
+}
+
+
+
+
+
+
+
+@include mediaScreen($maxWidth,$lg){ /* max 1199 */
+
+}
+@include mediaScreen($maxWidth,$md){ /* max 991 */
+    
+}
+@include mediaScreen($maxWidth,$sm){ /* max 767px */
+    .loginBlock {
+        & .LoginLeftArea {
+            display: none !important;
+        }
+        & .LoginRightArea {
+            padding-left: 26px;
+            padding-right: 26px;
+        }
+    }
+}
+@include mediaScreen($maxWidth,$xs){ /* max 575px */
+    
+}
+@include mediaScreen($maxWidth, 370px){ /* max 369px */
+    
+}
+
+@include mediaScreen2($lg, $sm){ /* max-width   to   min-width */
+    
+}

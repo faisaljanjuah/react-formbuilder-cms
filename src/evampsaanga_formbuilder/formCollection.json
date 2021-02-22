@@ -1,0 +1,197 @@
+{
+    "react-json-forms": [
+        {
+            "id": 1,
+            "name": "List form",
+            "apiEndpoint": "API_listForm",
+            "fields": [
+                {
+                    "data-id": 1,
+                    "name": "fullname",
+                    "label": "Full Name",
+                    "data-function": "input",
+                    "data-class-sm": "col-md-6",
+                    "data-class-lg": "col-lg-4"
+                },
+                {
+                    "data-id": 9,
+                    "name": "email",
+                    "label": "Email",
+                    "type": "email",
+                    "data-class-sm": "col-md-6",
+                    "data-class-lg": "col-lg-4",
+                    "data-validation-required": "Email is required",
+                    "data-validation-min": "10___Value must be greater than 10",
+                    "data-validation-max": "320___Value must be less than 320",
+                    "data-function": "input"
+                },
+                {
+                    "data-id": 3,
+                    "name": "city",
+                    "label": "City",
+                    "data-function": "input",
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-4"
+                },
+                {
+                    "data-id": 4,
+                    "name": "countries",
+                    "options": [
+                        {
+                            "text": "Pakistan"
+                        },
+                        {
+                            "text": "China"
+                        },
+                        {
+                            "text": "Japan"
+                        }
+                    ],
+                    "label": "Countries",
+                    "data-function": "select",
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-4"
+                },
+                {
+                    "data-id": 5,
+                    "name": "Zip",
+                    "label": "Zip Code",
+                    "data-function": "input",
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-4"
+                },
+                {
+                    "name": "testpassword",
+                    "label": "Test Password",
+                    "type": "password",
+                    "data-id": 14,
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-4",
+                    "data-validation-required": "Test password is required field",
+                    "data-function": "input"
+                },
+                {
+                    "data-id": 6,
+                    "name": "hide",
+                    "label": "Make Hide/Unhide",
+                    "checkboxText": "Hiddden",
+                    "data-function": "checkbox",
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-4"
+                },
+                {
+                    "data-id": 7,
+                    "name": "cars",
+                    "options": [
+                        {
+                            "text": "AUDI"
+                        },
+                        {
+                            "text": "BENZ"
+                        },
+                        {
+                            "text": "BMW"
+                        },
+                        {
+                            "text": "FORD"
+                        }
+                    ],
+                    "label": "Cars",
+                    "data-function": "radio",
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-4"
+                },
+                {
+                    "name": "images",
+                    "label": "Images",
+                    "multiple": true,
+                    "data-id": 12,
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-4",
+                    "type": "file",
+                    "data-function": "file"
+                },
+                {
+                    "data-id": 8,
+                    "name": "description",
+                    "label": "Description",
+                    "data-function": "textarea",
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-12"
+                },
+                {
+                    "name": "submit",
+                    "label": "Send",
+                    "type": "submit",
+                    "data-id": 13,
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-4",
+                    "data-function": "button"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Contact form",
+            "apiEndpoint": "API_contactForm"
+        },
+        {
+            "id": 3,
+            "name": "Registration form",
+            "apiEndpoint": "API_registrationForm"
+        },
+        {
+            "id": 6,
+            "name": "Change password form",
+            "apiEndpoint": "changepassword",
+            "fields": [
+                {
+                    "name": "currentpassword",
+                    "label": "Current Password",
+                    "type": "password",
+                    "data-id": 0,
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-6",
+                    "data-validation-required": "Current Password is required",
+                    "data-validation-min": "8___Value must be greater than 8",
+                    "data-validation-max": "15___Value must be less than 15",
+                    "data-function": "input"
+                },
+                {
+                    "name": "newpassword",
+                    "label": "New Password",
+                    "type": "password",
+                    "data-id": 1,
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-6",
+                    "data-validation-required": "newpassword is required",
+                    "data-validation-min": "8___Value must be greater than 8",
+                    "data-validation-max": "15___Value must be less than 15",
+                    "data-function": "input"
+                },
+                {
+                    "name": "confirmpassword",
+                    "label": "Confirm Password",
+                    "type": "password",
+                    "data-id": 2,
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-6",
+                    "data-validation-required": "confirmpassword is required",
+                    "data-validation-min": "8___Value must be greater than 8",
+                    "data-validation-max": "15___Value must be less than 15",
+                    "data-validation-similar": "newpassword___Confirm password must be same as new password",
+                    "data-function": "input"
+                },
+                {
+                    "name": "send",
+                    "label": "Change now",
+                    "type": "submit",
+                    "data-id": 3,
+                    "data-class-sm": "col-md-12",
+                    "data-class-lg": "col-lg-6",
+                    "data-function": "button"
+                }
+            ]
+        }
+    ]
+}

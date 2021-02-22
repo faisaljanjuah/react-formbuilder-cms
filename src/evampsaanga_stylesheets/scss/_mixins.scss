@@ -1,0 +1,117 @@
+/*!
+ **********************************************************************
+ 
+ **********************************************************************
+ */
+
+@mixin transform($transformType:none){
+	-o-transform: $transformType;
+	-ms-transform: $transformType;
+	-moz-transform: $transformType;
+	-webkit-transform: $transformType;
+	transform: $transformType;
+}
+@mixin transition($trnsTime:300ms){
+	-o-transition: all ease-in-out $trnsTime;
+	-ms-transition: all ease-in-out $trnsTime;
+	-moz-transition: all ease-in-out $trnsTime;
+	-webkit-transition: all ease-in-out $trnsTime;
+	transition: all ease-in-out $trnsTime;
+}
+@mixin transitionfull($trans:all ease-in-out 200ms){
+	-o-transition: $trans;
+	-ms-transition: $trans;
+	-moz-transition: $trans;
+	-webkit-transition: $trans;
+	transition: $trans;
+}
+@mixin rotate($angle:0deg){
+	-o-transform: rotate($angle);
+	-ms-transform: rotate($angle);
+	-moz-transform: rotate($angle);
+	-webkit-transform: rotate($angle);
+	transform: rotate($angle);
+}
+@mixin scale($scaleSize:1){
+	-o-transform: scale($scaleSize);
+	-ms-transform: scale($scaleSize);
+	-moz-transform: scale($scaleSize);
+	-webkit-transform: scale($scaleSize);
+	transform: scale($scaleSize);
+}
+@mixin scaleX($scaleSize:1){
+	-o-transform: scaleX($scaleSize);
+	-ms-transform: scaleX($scaleSize);
+	-moz-transform: scaleX($scaleSize);
+	-webkit-transform: scaleX($scaleSize);
+	transform: scaleX($scaleSize);
+}
+@mixin scaleY($scaleSize:1){
+	-o-transform: scaleY($scaleSize);
+	-ms-transform: scaleY($scaleSize);
+	-moz-transform: scaleY($scaleSize);
+	-webkit-transform: scaleY($scaleSize);
+	transform: scaleY($scaleSize);
+}
+@mixin box-shadow($shadow: 0px 0px 3px 0px rgba(0,0,0,0.75) ){
+	-o-box-shadow: $shadow;
+	-ms-box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	-webkit-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+@mixin translate($translatex: 50px, $translatey:50px ){
+	-o-transform: translate($translatex, $translatey);
+	-ms-transform: translate($translatex, $translatey);
+	-moz-transform: translate($translatex, $translatey);
+	-webkit-transform: translate($translatex, $translatey);
+	transform: translate($translatex, $translatey);
+}
+@mixin translateY($translatey: 0px){
+	-o-transform: translateY($translatey);
+	-ms-transform: translateY($translatey);
+	-moz-transform: translateY($translatey);
+	-webkit-transform: translateY($translatey);
+	transform: translateY($translatey);
+}
+@mixin translateX($translatex: 0px){
+	-o-transform: translateX($translatex);
+	-ms-transform: translateX($translatex);
+	-moz-transform: translateX($translatex);
+	-webkit-transform: translateX($translatex);
+	transform: translateX($translatex);
+}
+@mixin skew($skew: 0deg){
+	-o-transform: skew($skew);
+	-ms-transform: skew($skew);
+	-moz-transform: skew($skew);
+	-webkit-transform: skew($skew);
+	transform: skew($skew);
+}
+@mixin user-select($select: none) {
+	-o-user-select: $select;
+	-ms-user-select: $select;
+	-moz-user-select: $select;
+	-webkit-user-select: $select;
+	user-select: $select;
+}
+@mixin appearance($appval: none){
+	-o-appearance: $appval;
+	-ms-appearance: $appval;
+	-moz-appearance: $appval;
+	-webkit-appearance: $appval;
+	appearance: $appval;
+}
+
+@mixin mediaScreen($mediaType: $maxWidth, $mediaValue: $xs){
+	@if $mediaType == 'max-width' {
+		@media only screen and (max-width: $mediaValue - 1) { @content; }
+	}
+	@else {
+		@media only screen and (min-width: $mediaValue) { @content; }
+	}
+}
+
+@mixin mediaScreen2($mxWidth: $xs, $mnWidth: $xs){
+	@media only screen and (max-width: $mxWidth - 1) and (min-width: $mnWidth) { @content; }
+}
